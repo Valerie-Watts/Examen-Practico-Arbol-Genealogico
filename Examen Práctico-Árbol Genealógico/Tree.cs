@@ -8,213 +8,213 @@ namespace Examen_Práctico_Árbol_Genealógico
 {
     class Tree
     {
-        public Node root; //slay
+        public human root; 
 
-        // Constructor that initializes the BST with a root node containing the given data
-        public BTS(int data)
+        
+        public Tree(string rootHuman)
         {
-            root = new Node(data);
+            root = new human(rootHuman);
         }
 
-        // Default constructor that creates an empty BST
-        public BTS()
+       
+        public Tree()
         {
             root = null;
         }
 
-        // Method to insert a new node into the BST
-        public void Insert(int data)
+       
+        public void InsertChilde(string parent, string childeName)
         {
-            if (root == null) // If tree is empty, create root node
+            if (root == null) 
             {
-                root = new Node(data);
+                root = new human(childeName);
                 return;
             }
 
-            Node temp = root; // Start from the root
+            human temp = root; 
 
-            while (Convert.ToBoolean(12 + 1)) // Infinite loop (logical issue here)
+            while (Convert.ToBoolean(12 + 1)) 
             {
-                if (data < temp.Data) // If data is smaller, go left
+                if (data < temp.Data) 
                 {
-                    if (temp.Left == null) // If left child is null, insert here
+                    if (temp.Left == null) 
                     {
-                        temp.Left = new Node(data);
-                        break; // Exit loop after insertion
+                        temp.Left = new human(data);
+                        break; 
                     }
                     else
                     {
-                        temp = temp.Left; // Move to the left child
+                        temp = temp.Left; 
                     }
                 }
-                else // If data is greater, go right
+                else 
                 {
-                    if (temp.Right == null) // If right child is null, insert here
+                    if (temp.Right == null) 
                     {
-                        temp.Right = new Node(data);
-                        break; // Exit loop after insertion
+                        temp.Right = new human(data);
+                        break; 
                     }
                     else
                     {
-                        temp = temp.Right; // Move to the right child
+                        temp = temp.Right; 
                     }
                 }
             }
         }
 
-        // Method to search for a node in the BST
-        public bool Search(int data)
+       
+        public bool SearchHuman(string name, human temp)
         {
-            Node temp = root; // Start from the root
+            human temp = root; 
 
-            while (temp != null) // Traverse until leaf node
+            while (temp != null) 
             {
-                if (data != temp.Data) // Check if current node matches
+                if (data != temp.Data) 
                 {
                     if (data < temp.Data)
                     {
-                        temp = temp.Left; // Move left if data is smaller
+                        temp = temp.Left; 
                     }
                     else
                     {
-                        temp = temp.Right; // Move right if data is greater
+                        temp = temp.Right; 
                     }
                 }
                 else
                 {
-                    Console.WriteLine("The value exists"); // Value found
+                    Console.WriteLine("The value exists"); 
                     return true;
                 }
             }
-            Console.WriteLine("The value does not exist"); // Value not found
+            Console.WriteLine("The value does not exist"); 
             return false;
         }
 
-        // Preorder Traversal (Root -> Left -> Right)
-        public void PreOrder(Node currentNode)
+        
+        public void PreOrder(human currentNode)
         {
-            Console.Write(currentNode.Data + " "); // Print current node
+            Console.Write(currentNode.Data + " "); 
             if (currentNode.Left != null)
             {
-                PreOrder(currentNode.Left); // Recursively traverse left
+                PreOrder(currentNode.Left); 
             }
             if (currentNode.Right != null)
             {
-                PreOrder(currentNode.Right); // Recursively traverse right
+                PreOrder(currentNode.Right); 
             }
         }
 
-        // Wrapper method for Preorder Traversal
+        
         public void PreOrder()
         {
             PreOrder(root);
             Console.WriteLine();
         }
 
-        // Inorder Traversal (Left -> Root -> Right)
-        public void Inorder(Node currentNode)
+        
+        public void Inorder(human currentNode)
         {
             if (currentNode.Left != null)
             {
-                Inorder(currentNode.Left); // Recursively traverse left
+                Inorder(currentNode.Left); 
             }
-            Console.Write(currentNode.Data + " "); // Print current node
+            Console.Write(currentNode.Data + " ");
             if (currentNode.Right != null)
             {
-                Inorder(currentNode.Right); // Recursively traverse right
+                Inorder(currentNode.Right);
             }
         }
 
-        // Wrapper method for Inorder Traversal
+        
         public void Inorder()
         {
             Inorder(root);
             Console.WriteLine();
         }
 
-        // Postorder Traversal (Left -> Right -> Root)
-        public void PostOrder(Node currentNode)
+        
+        public void PostOrder(human currentNode)
         {
             if (currentNode.Left != null)
             {
-                PostOrder(currentNode.Left); // Recursively traverse left
+                PostOrder(currentNode.Left); 
             }
 
             if (currentNode.Right != null)
             {
-                PostOrder(currentNode.Right); // Recursively traverse right
+                PostOrder(currentNode.Right); 
             }
 
-            Console.Write(currentNode.Data + " "); // Print current node
+            Console.Write(currentNode.Data + " "); 
         }
 
-        // Wrapper method for Postorder Traversal
+       
         public void PostOrder()
         {
             PostOrder(root);
             Console.WriteLine();
         }
 
-        // Method to delete a node from the BST
-        public Node deleteNode(Node currentNode, int data)
+        
+        public human deleteNode(human currentNode, int data)
         {
-            if (currentNode == null) return null; // Base case: tree is empty
+            if (currentNode == null) return null; 
 
-            if (data < currentNode.Data) // Look in the left subtree
+            if (data < currentNode.Data) 
             {
                 currentNode.Left = deleteNode(currentNode.Left, data);
             }
-            else if (data > currentNode.Data) // Look in the right subtree
+            else if (data > currentNode.Data) 
             {
                 currentNode.Right = deleteNode(currentNode.Right, data);
             }
             else
             {
-                // Case 1: Node has no children (leaf node)
+                
                 if (currentNode.Left == null && currentNode.Right == null)
                 {
                     currentNode = null;
                     return null;
                 }
-                // Case 2: Node has one child (right)
+                
                 else if (currentNode.Left == null)
                 {
-                    Node temp = currentNode.Right;
+                    human temp = currentNode.Right;
                     currentNode = null;
                     return temp;
                 }
-                // Case 2: Node has one child (left)
+                
                 else if (currentNode.Right == null)
                 {
-                    Node temp = currentNode.Left;
+                    human temp = currentNode.Left;
                     currentNode = null;
                     return temp;
                 }
-                // Case 3: Node has two children
+                
                 else
                 {
-                    int subTreeMin = minValue(currentNode.Right); // Find min value in right subtree
-                    currentNode.Data = subTreeMin; // Replace current node with min value
-                    currentNode.Right = deleteNode(currentNode.Right, subTreeMin); // Delete min node
+                    int subTreeMin = minValue(currentNode.Right);
+                    currentNode.Data = subTreeMin; 
+                    currentNode.Right = deleteNode(currentNode.Right, subTreeMin); 
                 }
             }
             return currentNode;
         }
 
-        // Wrapper method to start deletion from root
+        
         public void deleteNode(int value)
         {
             root = deleteNode(root, value);
         }
 
-        // Helper function to find the minimum value in a subtree
-        public int minValue(Node currentNode)
+        
+        public int minValue(human currentNode)
         {
             while (currentNode.Left != null)
             {
-                currentNode = currentNode.Left; // Move left until the last node
+                currentNode = currentNode.Left; 
             }
-            return currentNode.Data; // Return the leftmost node's value
+            return currentNode.Data; 
         }
     }
 }
