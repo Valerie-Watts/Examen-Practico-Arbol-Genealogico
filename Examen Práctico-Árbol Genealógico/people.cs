@@ -6,28 +6,37 @@ using System.Threading.Tasks;
 
 namespace Examen_Práctico_Árbol_Genealógico
 {
-    class human
+    class person
     {
        
         private string name;
-        private List<human> childe;  
+        private person mother;
+        private person father;
+         
 
        
-        public human(string name)
+        public person(string name)
         {
             this.name = name;
-            childe = new List<human>(); 
+            mother = null;
+            father = null; 
         }
         
+        public int Mother
+        {
+            get { return Mother; }
+            set { Mother = value; }
+        }
+
         public int Name
         {
             get { return Name; }
             set { Name = value; }
         }
-        public int Childe
+        public int Father
         {
-            get { return Childe; }
-            set { Childe = value; }
+            get { return Father; }
+            set { Father = value; }
         }
 
 
